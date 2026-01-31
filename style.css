@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgb(12, 1, 2);
+  font-family: "Poppins", sans-serif;
+}
+
+@font-face {
+  font-family: "Benguiat";
+  src: url(assets/Benguiat\ Bold.ttf);
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3vw 4vw;
+  position: absolute;
+  z-index: 10;
+
+  h2 {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  img {
+    height: 24px;
+  }
+}
+
+section {
+  padding: 4vw 8vw 8vw;
+
+  h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+  }
+}
+
+button {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border: none;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+  gap: 12px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+button:hover {
+  color: rgb(255, 255, 255);
+}
+
+ul {
+  list-style: none;
+}
+
+.hero {
+  background-image: url("assets/1.png");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8vw 14vw;
+  position: relative;
+
+  .esquerda,
+  .direita {
+    width: 30%;
+    z-index: 9;
+  }
+
+  .esquerda {
+    h1 {
+      font-family: "Benguiat", sans-serif;
+      font-size: 4vw;
+      color: rgb(255, 255, 255);
+    }
+
+    h3 {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.9vw;
+      font-weight: 500;
+      letter-spacing: 0.6vw;
+    }
+  }
+
+  .direita {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap: 28px;
+
+    p {
+      text-align: end;
+      font-size: 2vw;
+    }
+  }
+}
+
+.hero::before {
+  content: "";
+  width: 100%;
+  height: 100vh;
+  background:
+    radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(12, 1, 2, 0) 0%,
+      rgba(12, 1, 2, 0.4) 100%
+    ),
+    linear-gradient(180deg, rgba(12, 1, 2, 0) 70.74%, #0c0102 100%);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.bg-monstro {
+  background-image: url(assets/2.png);
+  background-position: bottom;
+  background-size: cover;
+  position: relative;
+}
+
+.bg-monstro::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(12, 1, 2, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.secaoCidade {
+  position: inherit;
+  z-index: 2;
+
+  .header-cidades {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+
+  .cidades {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .cidade {
+      width: 32%;
+      background-image: url(assets/sidney.png);
+      aspect-ratio: 16/9;
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      padding: 12px;
+      position: relative;
+
+      h3,
+      p {
+        z-index: 9;
+      }
+
+      h3 {
+        font-weight: 400;
+      }
+
+      p {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.75);
+      }
+    }
+
+    .cidade:nth-child(2) {
+      background-image: url(assets/mexico.png);
+    }
+
+    .cidade:nth-child(3) {
+      background-image: url(assets/yas-island.png);
+    }
+
+    .cidade::before {
+      content: "";
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 63.64%,
+        rgba(0, 0, 0, 0.8) 100%
+      );
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      position: absolute;
+    }
+  }
+}
+
+.secaoDepoimentos {
+  position: inherit;
+  z-index: 2;
+  .logoEmpresas {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 86px;
+  }
+
+  .depoimentos {
+    display: flex;
+    justify-content: space-between;
+
+    .depoimento {
+      width: 28%;
+
+      img {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+.secaoAgradecimento {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  ul {
+    width: 100%;
+    display: flex;
+    margin-top: 48px;
+    justify-content: space-between;
+  }
+}
