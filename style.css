@@ -6,7 +6,7 @@
 
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 body {
@@ -256,9 +256,15 @@ header {
 
   ul {
     width: 100%;
-    display: flex;
-    margin-top: 48px;
-    justify-content: space-between;
+    .listaBase {
+      display: flex;
+      margin-top: 48px;
+      justify-content: space-between;
+    }
+  }
+
+  .listaRepeticao {
+    display: none;
   }
 }
 
@@ -309,7 +315,7 @@ footer {
 
       h3 {
         color: rgba(255, 255, 255, 0.8);
-        font-size: 1vw;
+        font-size: 18px;
         font-weight: 400;
         padding-bottom: 12px;
       }
@@ -372,12 +378,6 @@ footer {
   }
 }
 
-@keyframes textoInfinito {
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
 footer::before {
   content: "";
   background: radial-gradient(
@@ -390,4 +390,68 @@ footer::before {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+@media (max-width: 1400px) {
+  .secaoCidade .cidades .cidade {
+    flex-direction: column;
+    justify-content: end;
+    align-items: start;
+  }
+}
+
+@media (max-width: 1200px) {
+  .secaoCidade .header-cidades h2,
+  .secaoAgradecimento h2 {
+    font-size: 28px;
+  }
+
+  .secaoAgradecimento {
+    padding: 4vw 4vw 8vw;
+
+    h2 {
+      padding: 0 4vw;
+    }
+  }
+
+  footer {
+    .linksFooter .social .icons a img {
+      height: 28px;
+    }
+
+    .logosFooter img {
+      height: 28px;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .secaoAgradecimento {
+    padding: 4vw 0 8vw;
+
+    h2 {
+      padding: 0 4vw;
+      margin-bottom: 48px;
+    }
+
+    ul {
+      display: flex;
+      width: max-content;
+      flex-wrap: nowrap;
+
+      .listaBase,
+      .listaRepeticao {
+        display: flex;
+        gap: 80px;
+        padding-right: 80px;
+        animation: textoInfinito 15s linear infinite;
+      }
+    }
+  }
+}
+
+@keyframes textoInfinito {
+  100% {
+    transform: translateX(-100%);
+  }
 }
