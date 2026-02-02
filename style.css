@@ -49,6 +49,33 @@ button:hover {
   color: rgb(255, 255, 255);
 }
 
+#preloader {
+  background-color: rgb(12, 1, 2);
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  overflow: hidden;
+
+  svg {
+    width: 30vw;
+    height: auto;
+
+    path {
+      fill: rgba(220, 12, 9, 0.3);
+      stroke: rgb(220, 12, 9);
+      stroke-dasharray: 1140;
+      stroke-dashoffset: 1140;
+    }
+  }
+}
+
 ul {
   list-style: none;
 }
@@ -79,6 +106,7 @@ header {
 .hero {
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -91,13 +119,17 @@ header {
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+  }
+
+  .hero-monstro {
+    z-index: 1;
   }
 
   .esquerda,
@@ -149,7 +181,7 @@ header {
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 2;
+  z-index: 3;
 }
 
 .bg-monstro {
@@ -158,6 +190,7 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+  z-index: 2;
 }
 
 .bg-monstro::after {
@@ -240,7 +273,8 @@ header {
 
 .secaoDepoimentos {
   position: inherit;
-  z-index: 2;
+  z-index: 5;
+
   .logoEmpresas {
     display: flex;
     justify-content: space-between;
@@ -263,16 +297,20 @@ header {
 }
 
 .secaoAgradecimento {
+  background-color: rgb(12, 1, 2);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 12vw;
+  position: relative;
+  z-index: 5;
 
   ul {
     width: 100%;
     .listaBase {
       display: flex;
-      margin-top: 48px;
+      padding-top: 48px;
       justify-content: space-between;
     }
   }
@@ -292,6 +330,7 @@ footer {
   justify-content: end;
   align-items: center;
   position: relative;
+  z-index: 1;
 
   .conteudoFooter {
     display: flex;
@@ -499,8 +538,8 @@ footer::before {
       .listaBase,
       .listaRepeticao {
         display: flex;
-        gap: 80px;
-        padding-right: 80px;
+        gap: 60px;
+        padding-right: 60px;
         animation: textoInfinito 15s linear infinite;
       }
     }
@@ -518,12 +557,20 @@ footer::before {
 }
 
 @media (max-width: 800px) {
+  #preloader svg {
+    width: 60vw;
+  }
+
   section {
     padding: 12vw 4vw;
   }
 
   .hero {
     padding: 18vw 4vw 8vw;
+
+    picture {
+      z-index: 1;
+    }
 
     .esquerda {
       h1 {
@@ -544,10 +591,8 @@ footer::before {
 
   .bg-monstro {
     background-image: url(assets/bg-monstro-mobile.webp);
-  }
-
-  .bg-monstro::after {
-    display: none;
+    background-position: bottom;
+    z-index: 2;
   }
 
   .secaoCidade {
@@ -599,7 +644,7 @@ footer::before {
   }
 
   .secaoAgradecimento {
-    margin-top: 8vw;
+    padding-top: 8vw;
     h2 {
       text-align: center;
       font-size: 24px;
